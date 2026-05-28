@@ -9,36 +9,42 @@ headers = {
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36'
 }
 
+# 全局初始化：连接数据库、建表(只需在最开始时执行一次)
+conn = sqlite3.connect("quotes.db")
+cursor = conn.cursor()
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS quotes_table(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    text TEXT,
+    author TEXT
+)
+''')
+conn.commit() # 提高表结构创建
+
 api_infos = []
-page_alrealy = 0
+current_page = 1
 
 while True:
-    url = f'http://quotes.toscrape.com/api/quotes?page={page_alrealy+1}'
+    url = f'http://quotes.toscrape.com/api/quotes?page={current_page}'
 
-    print(f"开始抓取第{page_alrealy+1}页的信息.......")
+    print(f"开始抓取第{current_page}页的信息.......")
 
-    response = requests.get(url,headers=headers)
-    api_info = response.json()
+    try:
+        response = requests.get(url,headers=headers,timeout=10)
+        # 增加状态码校验,非200直接报错走异常处理
+        response.raise_for_status()
+        api_info = response.json()
+    except Exception as e:
+        print(f"请求或解析失败,第{current_page}页终止,错误信息:{e}")
+        break
 
-    # 连接/创建数据库(用sqlite3,python内置数据库)
-    conn = sqlite3.connect("quotes.db") # 不存在则自动创建
-    cursor = conn.cursor() # 创建游标(执行SQL)
+    # 数据处理与批量写入
+    quotes_list = api_info.get("quotes",[])
 
     # 处理数据
-    for quote in api_info["quotes"]:
+    for quote in quotes_list:
         text = quote["text"]
         author = quote["author"]["name"]
-
-        # 创建表
-        cursor.execute('''
-        CREATE TABLE IF NOT EXISTS quotes_table (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            text TEXT,
-            author TEXT
-        )
-        ''')
-
-        conn.commit()
 
         # 插入单条数据
         cursor.execute('''
@@ -46,24 +52,24 @@ while True:
         VALUES(?,?)
         ''',(text,author)
         )
-        conn.commit()
 
-    # 查询数据
-    cursor.execute("SELECT * FROM quotes_table")
-    all_data = cursor.fetchall() # 获取全部
-    for row in all_data:
-        print(row)
+    # 性能优化：按页提交事务,减少磁盘 I/O 损耗
+    conn.commit()
+    print(f"第{current_page}页成功写入数据库")
 
-    # 关闭连接
-    conn.close()
-
-    if api_info["has_next"]:
-        pass
-    else:
+    if not api_info.get("has_next") or not quotes_list:
+        print(f"已经到达最后一页，共{current_page}页,采集自动停止。")
         break
 
-    page_alrealy += 1
-    if page_alrealy >= 5:
+    current_page += 1
+
+    if current_page >= 6:
         break
+
+# 流程闭环:退出前释放数据库连接资源
+cursor.close()
+conn.close()
+
+
 
 
