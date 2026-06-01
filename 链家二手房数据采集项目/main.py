@@ -6,6 +6,7 @@ from database.mysql_handler import save_houses,save_to_excel,init_db
 import time,random
 from analysis.charts import zhu_chart,zhe_chart,bin_chart,avg_total_price,avg_unix_price
 
+
 def main():
     # 1.初始化定义
     CURRENT_PAGE = 1
@@ -60,11 +61,13 @@ def data_parse():
     zhu_chart()
     zhe_chart()
     bin_chart()
+
     logger.info('√数据分析成功，导出图表成功!')
 
 if __name__ == "__main__":
     # main()
-    data_parse()
+    # data_parse()
+    change_streamlit()
 
     
 

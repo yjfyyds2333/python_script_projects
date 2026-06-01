@@ -1,0 +1,9 @@
+# Streamlit核心（必须，支持width参数替代use_column_width）
+streamlit==1.34.0
+
+# 数据处理核心（app.py从config导入df必需）
+pandas==2.2.2
+numpy==1.26.4
+
+# 日期处理（pandas依赖，避免部署时自动安装旧版本）
+python-dateutil==2.9.0.post0

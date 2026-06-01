@@ -11,7 +11,7 @@ avg_unix_price,avg_total_price = avg_price(EXCEL_FILE)
 # 1.柱状图:区域平均房价对比
 def zhu_chart():
     area_avg_price = area_price(EXCEL_FILE)
-    plt.figure(figsize=(12,5))
+    plt.figure(figsize=(10,6))
     plt.bar(
         x = area_avg_price.index.astype(str),
         height = area_avg_price.values,

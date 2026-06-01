@@ -1,6 +1,7 @@
 import pandas as pd
-from config import EXCEL_FILE,logger,df
+from config import logger,df
 
+total_data_count = df['发布时间'].count()
 
 def avg_price(EXCEL_FILE):
     if not EXCEL_FILE:
@@ -36,3 +37,4 @@ def remen_area(EXCEL_FILE):
     except Exception as e:
         logger.error(f'出现错误:{e}')
     return remen_area_num
+
