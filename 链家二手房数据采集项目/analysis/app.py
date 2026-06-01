@@ -9,18 +9,11 @@ sys.path.insert(0, root_dir)
 
 import streamlit as st
 from analysis.charts import avg_unix_price,avg_total_price
-from config import df
-from config import CHART_BASE_DIR,EXCEL_FILE
+from config import CHART_BASE_DIR,EXCEL_FILE,df
 from analysis.analysis import total_data_count
 
 
 @st.cache_data
-def init_data():
-    df = pd.read_excel(EXCEL_FILE,engine="openpyxl")
-    df = df.dropna(subset=["单价","面积","区域"])
-
-init_data()
-
 def change_to_st():
     # 标题+数据概览模块
     st.title("东莞市二手房数据分析仪表盘")
