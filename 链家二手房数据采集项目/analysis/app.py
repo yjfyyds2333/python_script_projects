@@ -9,7 +9,7 @@ sys.path.insert(0, root_dir)
 
 import streamlit as st
 from analysis.charts import avg_unix_price,avg_total_price
-from config import CHART_BASE_DIR,EXCEL_FILE,df
+from config import CHART_BASE_DIR,df
 from analysis.analysis import total_data_count
 
 
