@@ -53,4 +53,4 @@ def bin_chart():
     plt.title("热门朝向二手房房源占比（TOP10）", fontsize=14)
     plt.axis("equal")  # 保持饼图为圆形
     plt.tight_layout()
-    plt.savefig(os.path.join(CHART_BASE_DIR,"热门朝向饼图.png"),dpi=300)
+    plt.savefig(os.path.join(CHART_BASE_DIR,"热门朝向饼状图.png"),dpi=300)
