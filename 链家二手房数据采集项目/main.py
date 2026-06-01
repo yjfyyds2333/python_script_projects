@@ -4,7 +4,7 @@ from crawler.parse import parse_html
 from crawler.paginator import get_next_url,has_nex_url
 from database.mysql_handler import save_houses,save_to_excel,init_db
 import time,random
-from analysis.charts import zhu_chart,zhe_chart,bin_chart,avg_total_price,avg_unix_price
+from analysis.charts import zhu_chart,zhe_chart,bin_chart,zhexian_chart,avg_total_price,avg_unix_price
 
 
 def main():
@@ -61,6 +61,8 @@ def data_parse():
     zhu_chart()
     zhe_chart()
     bin_chart()
+    zhexian_chart()
+    
 
     logger.info('√数据分析成功，导出图表成功!')
 

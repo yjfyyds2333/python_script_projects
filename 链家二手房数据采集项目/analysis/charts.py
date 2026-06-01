@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from analysis.analysis import avg_price,area_price,area_fenbu,remen_area
-from config import EXCEL_FILE,CHART_BASE_DIR
+from config import EXCEL_FILE,CHART_BASE_DIR,monthly_counts
 import os 
 
 plt.rcParams["font.sans-serif"] =["SimHei"]
@@ -54,3 +54,21 @@ def bin_chart():
     plt.axis("equal")  # 保持饼图为圆形
     plt.tight_layout()
     plt.savefig(os.path.join(CHART_BASE_DIR,"热门朝向饼状图.png"),dpi=300)
+
+def zhexian_chart():
+    plt.figure(figsize=(8,8))
+    plt.plot(
+        monthly_counts.index.astype(str),
+        monthly_counts.values, 
+        marker = "o",
+        color = "green",
+        linewidth=2
+    )
+
+    # 美化
+    plt.title("月度挂牌的房源数量趋势图", fontsize=14)
+    plt.xlabel("发布月份",fontsize=12)
+    plt.ylabel("房源数量",fontsize=12)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.savefig(os.path.join(CHART_BASE_DIR,"月度挂牌的房源数量趋势图.png"),dpi=300)

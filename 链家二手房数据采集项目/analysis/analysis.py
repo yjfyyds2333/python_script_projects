@@ -1,5 +1,5 @@
 import pandas as pd
-from config import logger,df
+from config import logger,df,monthly_counts
 
 total_data_count = df['发布时间'].count()
 

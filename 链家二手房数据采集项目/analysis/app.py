@@ -40,6 +40,10 @@ def change_to_st():
     st.image(os.path.join(CHART_BASE_DIR,"热门朝向饼状图.png"))
     st.info("朝向为南的房屋的占比最多")
 
+    st.subheader("4.月度挂牌的房源数量趋势图")
+    st.image(os.path.join(CHART_BASE_DIR,"月度挂牌的房源数量趋势图.png"))
+    st.info("从2026年3月开始，房源数量逐月上升，且上升幅度很大")
+
     st.subheader("数据预览(前20条)")
     st.dataframe(df.head(20),use_container_width=True)
 

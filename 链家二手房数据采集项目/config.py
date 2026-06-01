@@ -58,6 +58,9 @@ page = None # 网页标签页
 # 数据分析定义区
 df = pd.read_excel(EXCEL_FILE,engine="openpyxl")
 df = df.dropna(subset=["单价","面积","朝向"])
+df["发布时间"] = pd.to_datetime(df["发布时间"],errors="coerce") 
+df["publish_month"] = df["发布时间"].dt.to_period("M")
+monthly_counts = df.groupby("publish_month")["标题"].count()
 
 # 图表保存基础路径
 CHART_BASE_DIR = EXCEL_DIR

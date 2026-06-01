@@ -10273,3 +10273,11 @@ Call log:
 2026-06-01 16:57:26,814 - ERROR - 出现错误:'朝向' - analysis:19 area_price
 2026-06-01 17:06:11,521 - INFO - √数据分析成功，导出图表成功! - main:65 data_parse
 2026-06-01 17:07:05,698 - INFO - √数据分析成功，导出图表成功! - main:65 data_parse
+2026-06-01 18:36:04,911 - INFO - √数据分析成功，导出图表成功! - main:67 data_parse
+2026-06-01 18:36:39,358 - INFO - √数据分析成功，导出图表成功! - main:67 data_parse
+2026-06-01 18:45:00,640 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting. - category:224 update
+2026-06-01 18:45:00,642 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting. - category:224 update
+2026-06-01 18:45:00,811 - INFO - √数据分析成功，导出图表成功! - main:67 data_parse
+2026-06-01 18:53:26,932 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting. - category:224 update
+2026-06-01 18:53:26,937 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting. - category:224 update
+2026-06-01 18:53:27,119 - INFO - √数据分析成功，导出图表成功! - main:67 data_parse
