@@ -30,13 +30,15 @@ def change_to_st():
     # 将已经生成的表格图片上传
     st.subheader("1.东莞链家二手房各个朝向的房价对比柱状图")
     st.image(os.path.join(CHART_BASE_DIR,"东莞链家二手房各个朝向的房价对比柱状图.png"))
-    st.info('分析结论:东南与西北')
+    st.info('分析结论:东南与西北朝向的房价较高，北朝向的房价较低')
 
     st.subheader("2.面积分布折线图")
     st.image(os.path.join(CHART_BASE_DIR,"面积分布折线图.png"))
+    st.info("80-100m²的房屋数量较多")
 
     st.subheader("3.热门朝向饼状图")
     st.image(os.path.join(CHART_BASE_DIR,"热门朝向饼状图.png"))
+    st.info("朝向为南的房屋的占比最多")
 
     st.subheader("数据预览(前20条)")
     st.dataframe(df.head(20),use_container_width=True)
