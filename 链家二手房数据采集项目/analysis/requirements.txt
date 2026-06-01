@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-# 基础依赖
-streamlit==1.34.0
-pandas==2.2.2
-numpy==1.26.4
-python-dateutil==2.9.0.post0
-
-# 新增：charts.py需要的matplotlib
-matplotlib==3.9.0
-=======
 streamlit
 pandas
 matplotlib
