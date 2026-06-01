@@ -14,7 +14,7 @@ def area_price(EXCEL_FILE):
     if not EXCEL_FILE:
         logger.error("分析数据时未发现excel表格，无法读取！")
     try:
-        area_price = df.groupby("区域")["单价"].mean().sort_values(ascending=False)
+        area_price = df.groupby("朝向")["单价"].mean().sort_values(ascending=False)
     except Exception as e:
         logger.error(f'出现错误:{e}')
     return area_price
@@ -33,7 +33,7 @@ def remen_area(EXCEL_FILE):
     if not EXCEL_FILE:
         logger.error("分析数据时未发现excel表格，无法读取！")
     try:
-        remen_area_num = df["区域"].value_counts()
+        remen_area_num = df["朝向"].value_counts()
     except Exception as e:
         logger.error(f'出现错误:{e}')
     return remen_area_num

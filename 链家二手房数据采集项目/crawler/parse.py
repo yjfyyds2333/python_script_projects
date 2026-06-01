@@ -77,7 +77,7 @@ def parse_html(html,houses_results):
                 '面积':area,
                 '户型':Floor_Plan,
                 '楼层':floor,
-                '区域':region,
+                '朝向':region,
                 '小区':xiaoqu,
                 '关注人数':star_num,
                 '发布时间':publish_time

@@ -66,8 +66,8 @@ def data_parse():
 
 if __name__ == "__main__":
     # main()
-    # data_parse()
-    change_streamlit()
+    data_parse()
+
 
     
 

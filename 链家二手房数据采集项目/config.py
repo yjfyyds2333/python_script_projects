@@ -57,7 +57,7 @@ page = None # 网页标签页
 
 # 数据分析定义区
 df = pd.read_excel(EXCEL_FILE,engine="openpyxl")
-df = df.dropna(subset=["单价","面积","区域"])
+df = df.dropna(subset=["单价","面积","朝向"])
 
 # 图表保存基础路径
 CHART_BASE_DIR = EXCEL_DIR
