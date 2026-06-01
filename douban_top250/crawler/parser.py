@@ -1,5 +1,6 @@
 from lxml import etree
 from config import logger
+import re
 
 def parse_movies(html,movies_results):
     '''解析HTML，返回电影数据列表'''
@@ -21,6 +22,7 @@ def parse_movies(html,movies_results):
                 movie_name = item.xpath('.//span[@class="title"]/text()')[0].strip() 
                 rating_num = item.xpath('.//span[@class="rating_num"]/text()')[0]
                 rating_people = item.xpath('.//span[contains(text(),"人评价")]/text()')[0]
+                rating_people = re.sub(r'[^\d]','',str(rating_people))
                 intro =item.xpath('.//div[@class="bd"]/p/text()')[0].strip()
                 link = item.xpath('.//div[@class="pic"]/a/@href')[0]
             except Exception as e:

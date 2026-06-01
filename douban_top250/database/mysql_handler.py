@@ -12,7 +12,7 @@ def init_db():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         电影名 TEXT,
         评分 TEXT,
-        评价人数 TEXT,
+        评价人数 INT NOT NULL,
         简介 TEXT,
         主页链接 TEXT
     )
