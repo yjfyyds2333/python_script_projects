@@ -1,15 +1,20 @@
 from config import DB_PATH,EXCEL_FILE,logger
-import sqlite3
+import pymysql
 import pandas as pd
 
 def init_db():
     # 创建数据库并连接
-    conn = sqlite3.connect(DB_PATH)
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        password='Yjf15113137810',
+        db='movies_top250'
+    )
     cursor = conn.cursor()
 
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS douban_movies (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
         电影名 TEXT,
         评分 TEXT,
         评价人数 INT NOT NULL,
@@ -31,7 +36,7 @@ def save_movies(conn,cursor,movies):
 
         cursor.execute('''
     INSERT INTO douban_movies(电影名,评分,评价人数,简介,主页链接)
-    VAlUES(?,?,?,?,?)
+    VAlUES(%s,%s,%s,%s,%s)
     ''',(
         movie.get("电影名"),
         movie.get("评分"),
