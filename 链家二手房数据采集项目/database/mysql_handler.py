@@ -18,10 +18,12 @@ def init_db():
         `楼层` INT NOT NULL,
         `朝向` VARCHAR(50),
         `小区` VARCHAR(50),
+        `地区` VARCHAR(50),
         `关注人数` INT NOT NULL,
         `发布时间` DATE NOT NULL,
+        `房屋详细页` VARCHAR(255) NOT NULL,
         INDEX idx_district (`朝向`),
-        INDEX idx_community (`小区`) 
+        INDEX idx_community (`房屋详细页`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;'''
     ) 
     
@@ -34,8 +36,8 @@ def save_houses(conn,cursor,houses_results):
         return '没有数据可以保存'
     for houses_result in houses_results:
         cursor.execute('''
-        INSERT INTO lj_houses(`标题`,`总价`,`单价`,`面积`,`户型`,`楼层`,`朝向`,`小区`,`关注人数`,`发布时间`)
-        VAlUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        INSERT INTO lj_houses(`标题`,`总价`,`单价`,`面积`,`户型`,`楼层`,`朝向`,`小区`,`地区`,`关注人数`,`发布时间`,`房屋详细页`)
+        VAlUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
         ''',(
             houses_result.get("标题"),
             houses_result.get("总价"),
@@ -45,8 +47,10 @@ def save_houses(conn,cursor,houses_results):
             houses_result.get("楼层"),
             houses_result.get("朝向"),
             houses_result.get("小区"),
+            houses_result.get("地区"),
             houses_result.get("关注人数"),
             houses_result.get("发布时间"),
+            houses_result.get("房屋详细页")
         ))
 
         conn.commit()

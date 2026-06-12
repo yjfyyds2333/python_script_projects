@@ -12,6 +12,8 @@ def parse_html(html,houses_results):
     tree = etree.HTML(html)
     try:
         house_cards = tree.xpath('//div[@class="info clear"]')
+        houses_links = tree.xpath('//a[@class="noresultRecommend img LOGCLICKDATA"]/@href')
+
         if not house_cards or len(house_cards) == 0:
             logger.warning('未获取到任何房屋卡片')
     except Exception as e:
@@ -21,6 +23,11 @@ def parse_html(html,houses_results):
     for i,house in enumerate(house_cards):
         try:
             logger.info(f'正在爬取第{i+1}条数据.......')
+
+            houses_link = houses_links[i]
+
+            if not houses_links:
+                houses_links = None
 
             try:
                 title = house.xpath('.//div[@class="title"]/a/text()')[0]
@@ -53,8 +60,8 @@ def parse_html(html,houses_results):
                 logger.error(f'字段获取失败:原因:{e}')
 
             try:
-                xiaoqu_list = house.xpath('.//div[@class="positionInfo"]/a/text()')
-                xiaoqu = xiaoqu_list[0] + xiaoqu_list[1]
+                xiaoqu = house.xpath('.//div[@class="positionInfo"]/a/text()')[0]
+                location = house.xpath('.//div[@class="positionInfo"]/a/text()')[1]
             except Exception as e:
                 logger.error(f'字段获取失败:原因:{e}')
 
@@ -69,7 +76,7 @@ def parse_html(html,houses_results):
 
             except Exception as e:
                 logger.error(f'字段获取失败:原因:{e}')
-
+                
             houses_results.append({
                 '标题':title,
                 '总价':total_price,
@@ -79,14 +86,16 @@ def parse_html(html,houses_results):
                 '楼层':floor,
                 '朝向':region,
                 '小区':xiaoqu,
+                '地区':location,
                 '关注人数':star_num,
-                '发布时间':publish_time
-            })
-        
+                '发布时间':publish_time,
+                '房屋详细页':houses_link,
+                })
+            
         except Exception as e:
             logger.error(f'获取字段失败,原因:{e}')
 
-    logger.info(f"解析成功,本页提取到{len(houses_results)}条数据")
+    logger.info(f"解析成功,总共提取到{len(houses_results)}条数据")
     return houses_results
 
 

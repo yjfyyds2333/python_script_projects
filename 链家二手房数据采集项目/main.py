@@ -67,8 +67,8 @@ def data_parse():
     logger.info('√数据分析成功，导出图表成功!')
 
 if __name__ == "__main__":
-    # main()
-    data_parse()
+    main()
+    # data_parse()
 
 
     

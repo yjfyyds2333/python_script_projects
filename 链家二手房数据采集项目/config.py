@@ -1,6 +1,7 @@
 import os 
 import logging
 import pandas as pd
+from datetime import datetime
 
 # 用绝对路径
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -26,7 +27,7 @@ logger = logging.getLogger()
 # EXCEL文件路径与定义
 EXCEL_DIR = os.path.join(BASE_DIR,'output')
 os.makedirs(EXCEL_DIR,exist_ok=True)
-EXCEL_FILE = os.path.join(EXCEL_DIR,'result.xlsx')
+EXCEL_FILE = os.path.join(EXCEL_DIR,f'result_{datetime.now().strftime("%Y-%m-%d")}.xlsx')
 
 # 数据库配置
 db_config = {
