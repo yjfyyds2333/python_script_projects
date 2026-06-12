@@ -4,7 +4,7 @@
 
 ## 技术栈
 - 编程语言：Python
-- 数据处理：`pandas` / `numpy`
+- 数据处理：`pandas` / `numpy` /`python re 模块(正则表达式,精准捕获)`
 - 可视化绘图：`matplotlib`
 - Excel 读写：`openpyxl`
 - 网页看板部署：`streamlit`
