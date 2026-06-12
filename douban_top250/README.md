@@ -37,7 +37,7 @@ douban_top250/
 
 ## 🛠️ 技术栈
 - 爬虫：`requests` + `lxml`
-- 数据库：`SQLite3`（轻量无需安装）
+- 数据库：`SQLite3`（轻量无需安装）\ MySQL
 - 数据导出：`pandas` + `openpyxl`
 - 日志：Python 内置 `logging` 模块
 
