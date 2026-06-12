@@ -22,7 +22,7 @@
 ├── *.png                    # 预生成好的静态分析图表
 ├── requirements.txt         # 项目依赖库
 └── README.md                # 项目说明文档
-└── PoweBI.txt               # Power BI 可视化链接
+└── 链家数据看板.pbix         # Power BI 可视化文件
 ```
 
 ## 环境依赖
