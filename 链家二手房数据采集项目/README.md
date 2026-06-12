@@ -46,6 +46,7 @@ pip install -r requirements.txt
 streamlit run analysis/app.py
 ```
 运行后自动弹出网页，展示所有已生成的静态分析图表 + 数据统计信息。
+用Power BI DESKTOP 打开 链家数据看板.pbix 文件
 
 ## 云端部署（share.streamlit.io）
 1. 将项目完整上传至 GitHub 仓库
