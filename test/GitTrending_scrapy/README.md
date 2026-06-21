@@ -1,13 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191110102MACQD9K64018705
-    ProduceID: 907551919054137_0/project_7650382242090320143-files/学习路线/GitTrending_README.md
-    ReservedCode1: ""
-    ContentPropagator: 001191110102MACQD9K64028705
-    PropagateID: 907551919054137#1782010422852
-    ReservedCode2: ""
----
 # GitHub Trending 监控系统
 
 基于 Scrapy + SQLite + APScheduler 的 GitHub Trending 自动采集与评分系统，每日定时采集多个编程语言的热门仓库，按增长速度评分排序，采集完成后自动发送邮件报告。
