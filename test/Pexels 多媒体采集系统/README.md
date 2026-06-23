@@ -1,13 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191110102MACQD9K64018705
-    ProduceID: 907551919054137_0/project_7650382242090320143-files/学习路线/pexels_readme.md
-    ReservedCode1: ""
-    ContentPropagator: 001191110102MACQD9K64028705
-    PropagateID: 907551919054137#1782200246402
-    ReservedCode2: ""
----
 # Pexels 多媒体采集系统
 
 基于 Pexels 官方 API 的图片+视频批量采集工具，支持关键词搜索、分页采集、断点续采、元数据存储与导出。
@@ -122,6 +112,4 @@ if __name__ == "__main__":
 - .env 文件包含 API Key，务必添加到 .gitignore
 - 视频清晰度选择依赖 API 返回的 video_files 数量，少数视频可能不足 5 档
 
----
 
-> 本内容由 Coze AI 生成，请遵循相关法律法规及《人工智能生成合成内容标识办法》使用与传播。
