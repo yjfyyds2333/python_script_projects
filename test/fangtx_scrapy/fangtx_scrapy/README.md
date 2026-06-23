@@ -1,13 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191110102MACQD9K64018705
-    ProduceID: 907551919054137_0/project_7650382242090320143-files/学习路线/fangtx_readme.md
-    ReservedCode1: ""
-    ContentPropagator: 001191110102MACQD9K64028705
-    PropagateID: 907551919054137#1782109386043
-    ReservedCode2: ""
----
 # 房天下二手房监控系统
 
 基于 Scrapy + MongoDB + APScheduler 的全国二手房房源增量采集与监控系统。
@@ -174,6 +164,4 @@ db.fangtx.find({house_community: "家天下"}, {price_history: 1})
 - [ ] spider 中 house_area 缺失时使用了 return（应为 continue）
 - [ ] Cookie 硬编码在 settings.py 中（应改为环境变量读取）
 
----
 
-> 本内容由 Coze AI 生成，请遵循相关法律法规及《人工智能生成合成内容标识办法》使用与传播。
