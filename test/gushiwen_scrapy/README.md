@@ -1,15 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191110102MACQD9K64018705
-    ProduceID: 907551919054137_0/project_7650382242090320143-files/学习路线/gushiwen_readme.md
-    ReservedCode1: ""
-    ContentPropagator: 001191110102MACQD9K64028705
-    PropagateID: 907551919054137#1782293002707
-    ReservedCode2: ""
----
-# 古文岛Scrapy工程化采集系统
-
 ## 项目简介
 
 基于 Scrapy CrawlSpider 框架采集古文岛（guwendao.net）古诗文数据，支持文本、图片混合采集，实现了 CrawlSpider 自动链接跟踪、FilesPipeline 文件下载、自定义 Downloader Middleware、MongoDB 存储、Excel 导出和增量采集。
@@ -141,7 +129,3 @@ scrapy crawl gushiwen_spider
 2. **FilesPipeline**：声明式文件下载，只需传 URL 列表，Pipeline 自动处理下载、去重、命名
 3. **Pipeline 生命周期**：`open_spider` → `process_item`（逐条）→ `close_spider`
 4. **Downloader Middleware**：`process_request`（请求前）、`process_response`（响应后）、`process_exception`（异常时）
-
----
-
-> 本内容由 Coze AI 生成，请遵循相关法律法规及《人工智能生成合成内容标识办法》使用与传播。
