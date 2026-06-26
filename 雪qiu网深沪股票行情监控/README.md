@@ -1,13 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191110102MACQD9K64018705
-    ProduceID: 907551919054137_0/project_7650382242090320143-files/学习路线/xueqiu_readme.md
-    ReservedCode1: ""
-    ContentPropagator: 001191110102MACQD9K64028705
-    PropagateID: 907551919054137#1782442071179
-    ReservedCode2: ""
----
 # 项目6：雪球网股票行情监控系统
 
 ## 项目简介
@@ -83,6 +73,3 @@ xueqiu_stock/
 - cookie有效期约7天，过期需重新获取
 - 采集168页约5000只股票，全量采集注意频率控制
 
----
-
-> 本内容由 Coze AI 生成，请遵循相关法律法规及《人工智能生成合成内容标识办法》使用与传播。
